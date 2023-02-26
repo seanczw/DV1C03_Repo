@@ -1,8 +1,6 @@
-# syntax=docker/dockerfile:1
-FROM ubuntu:18.04
-RUN apt-get update 
-RUN apt-get install –y apache2 
-RUN apt-get install –y apache2-utils 
-RUN apt-get clean 
+From ubuntu:18.04
+RUN apt update
+RUN apt-get install -y apache2
+RUN apt clean
 EXPOSE 80
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+CMD ["apache2ctl","-D","FOREGROUND"]
