@@ -91,24 +91,12 @@ pipeline {
 		   container('kubectl') {
 			
 			withCredentials([file(credentialsId: 'config6', variable: 'KUBECONFIG')]) {
-			 
-			 
-			 try {               
+			              
    				    sh "kubectl delete -n default deployment 22051107-svr"
 				    sh  "kubectl delete -n default service apache"
 		                    sh "kubectl create -f deployment.yaml"
 				    echo "Down previous deployment and continue with new deployment . . ."
-                   	  }
-                 	   catch (Exception e) {
-			 		 sh "kubectl create -f deployment.yaml"	 
-					 echo "No deployment has been done before , continue to deploy . . ."
-		   	  }   
-			 
-			 
-    			
-			 
-			 
-			 
+
 			 
 			 
 			}
