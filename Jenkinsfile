@@ -4,7 +4,6 @@ pipeline {
  environment {
     dockerimagename = "sczw/22051107_webimage"
     dockerImage = ""
-    DOCKER_LOGIN = credentials('dockerhublogin')
     
   }
 
@@ -59,13 +58,15 @@ pipeline {
                 ok "y"
             }
 	    
-	       
+	       environment {
+               registryCredential = 'dockerhublogin'
+             }
             
               steps {
                  echo "Yes Selected"
 		 
 		     script {
-               docker.withRegistry( 'https://registry.hub.docker.com', DOCKER_LOGIN ) {
+               docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
                dockerImage.push("latest")
              
                 }
