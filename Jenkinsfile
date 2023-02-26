@@ -5,7 +5,7 @@ pipeline {
     dockerimagename = "sczw/22051107_webimage"
     dockerImage = ""
     DOCKER_LOGIN = credentials('dockerhublogin')
-    K8S_LOGIN = credentials('config6')
+    
   }
 
 
@@ -88,9 +88,9 @@ pipeline {
         
             stage('Stage 7_22051107') {
          	 steps {
-		   script {
+		   container('kubectl') {
 			
-			kubeconfig(K8S_LOGIN)
+			withCredentials([file(credentialsId: 'config6', variable: 'KUBECONFIG')])
 			{
 			 
 			 
