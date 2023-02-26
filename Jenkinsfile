@@ -55,8 +55,8 @@ pipeline {
         }
         stage('Stage 5_22051107') {
             input {
-                message "Do you want to release the work?"
-                ok "Yes"
+                message "Do you want to release the work? (y/n)"
+                ok "y"
             }
 	    
 	       
@@ -94,7 +94,7 @@ pipeline {
 			              
    				    sh "kubectl delete -n default deployment 22051107-svr"
 				    sh  "kubectl delete -n default service apache"
-		                    sh "kubectl create -f deployment.yaml"
+		                    sh "kubectl create -f apache-depl.yaml -f apache-svc.yaml"
 				    echo "Down previous deployment and continue with new deployment . . ."
 
 			 
