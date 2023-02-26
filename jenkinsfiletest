@@ -8,7 +8,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-echo "git cloned"
+git 'https://github.com/seanczw/DV1C03_Repo.git'
 }
 }
 stage('Building our image') {
