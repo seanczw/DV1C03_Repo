@@ -3,8 +3,8 @@ version: "3.2"
 services:
   apache:
     build: .
-    image: koonsingrp/22050108_webimage
-    container_name: S2_22050108_Server
+    image: sczw/22051107_webimage
+    container_name: 22051107_svr
     ports:
       - 42000:80
     volumes:
