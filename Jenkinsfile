@@ -69,7 +69,7 @@ pipeline {
              
                 }
 		
-		 echo "Work Released - 22051107"
+		
             } 
 		 
                 }
@@ -79,8 +79,8 @@ pipeline {
              
             steps {
          
-	       sh "docker-compose down  "
-		echo "Stage 6 - 22051107 - Stop docker container"
+	     
+		echo "Stage 6 - Work Released - 22051107"
               
             }
         }
@@ -90,7 +90,7 @@ pipeline {
                 script {
                     kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
                     }
-        		  echo "Stage 7 - 22051107 Creating deployment to kubernetes"
+        		  echo "Stage 7 - 22051107 CD on minikube"
       	 	}  
        	}
 
