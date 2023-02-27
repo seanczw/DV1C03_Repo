@@ -25,6 +25,8 @@ pipeline {
                   dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 
                    }
+		    
+		sh "docker-compose down  "
   	  	sh "docker-compose up -d  "
 		 
 
