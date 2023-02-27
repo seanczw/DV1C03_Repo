@@ -4,7 +4,7 @@ services:
   apache:
     build: .
     image: sczw/22051107_webimage
-    container_name: 22051107_svr
+    container_name: 22051107_Server
     ports:
       - 42000:80
     volumes:
