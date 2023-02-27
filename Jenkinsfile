@@ -2,7 +2,7 @@ pipeline {
 
 
  environment {
-    dockerimagename = "sczw/22051107_webimage"
+    registry = "sczw/22051107_webimage"
     dockerImage = ""
     
   }
@@ -26,7 +26,7 @@ pipeline {
         stage('Stage 2_22051107') {
             steps {
                 script {
-                  dockerImage = docker.build dockerimagename 
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 
                    }
   	  	sh "docker-compose up -d  "
