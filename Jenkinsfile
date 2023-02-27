@@ -54,8 +54,8 @@ pipeline {
         }
         stage('Stage 5_22051107') {
             input {
-                message "Do you want to release the work? (y/n)"
-                ok "y"
+                message "Do you want to release the work?"
+                ok "Yes"
             }
 	    
 	       environment {
