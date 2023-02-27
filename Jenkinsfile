@@ -89,7 +89,7 @@ pipeline {
         
             stage('Stage 7_22051107') {
          	 steps {
-		   container('minikube') {
+		   container('kubectl') {
 			
 			withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
 			              
