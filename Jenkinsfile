@@ -85,32 +85,13 @@ pipeline {
         
             stage('Stage 7_22051107') {
          	 steps {
-		   container('kubectl') {
-			
-			withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-			              
-   				    sh "kubectl delete -n default deployment 22051107-svr"
-				    sh  "kubectl delete -n default service apache"
-		                    sh "kubectl create -f apache-depl.yaml -f apache-svc.yaml"
-				    echo "Down previous deployment and continue with new deployment . . ."
-
-			 
-			 
-			}
-		}	
+                script {
+                    kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+                    }
         		  echo "Stage 7 - 22051107 Creating deployment to kubernetes"
       	 	}  
        	}
 
     }   
-    post {
-    	always {
-	
-		script {
-		
-              		sh "docker-compose down  "
-			 	
-                }
-	}
-    }
+    
 }
