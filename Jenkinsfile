@@ -84,15 +84,7 @@ pipeline {
               
             }
         }
-        
-            stage('Stage 7_22051107') {
-         	 steps {
-                script {
-                    kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
-                    }
-        		  echo "Stage 7 - 22051107 CD on minikube"
-      	 	}  
-       	}
+       
 
     }   
     
