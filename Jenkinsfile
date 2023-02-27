@@ -91,7 +91,7 @@ pipeline {
          	 steps {
 		   container('kubectl') {
 			
-			withCredentials([file(credentialsId: 'config6', variable: 'KUBECONFIG')]) {
+			withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
 			              
    				    sh "kubectl delete -n default deployment 22051107-svr"
 				    sh  "kubectl delete -n default service apache"
