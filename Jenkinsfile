@@ -8,14 +8,7 @@ pipeline {
   }
 
 
-    agent {
-	    kubernetes {
-		    cloud 'kubernetes'
-	    }
-        node {
-            label 'master'
-        }
-    }
+    agent any
   
     stages {
         
