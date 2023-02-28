@@ -93,12 +93,16 @@ pipeline {
             withKubeConfig([credentialsId: 'mykubeconfig'])
 			{
 			 
-			               
+			      try{         
    				sh "kubectl delete -n default deployment 22051107-svr"
 				sh  "kubectl delete -n default service apache"
 		            	sh "kubectl create -f deployment.yaml"
-				echo "...Created/Updated kubernetes deployment!..."
-
+				echo "Shut down previous deployment and created new deployment"
+				}
+				catch (Exception e) {
+			 		 sh "kubectl create -f deployment.yaml"	 
+					 echo "Created new deployment"
+		   	  }  
 			}
 		}	
         		  echo "Stage 7 - 22051107 Creating deployment to kubernetes"
