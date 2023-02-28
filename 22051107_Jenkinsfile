@@ -101,7 +101,7 @@ pipeline {
 
 			}
 		}	
-        		  echo "Stage 7 - 22050108 Creating deployment to kubernetes"
+        		  echo "Stage 7 - 22051107 Creating deployment to kubernetes"
       	 	}  
        	}
 
